@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use Database\Seeders\PermissionTableSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-class RoleTableSeeder extends Seeder
+
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +15,12 @@ class RoleTableSeeder extends Seeder
     {
         Role::create([
             'name' => 'admin',
-            'guard_name' => 'api'
+            'guard_name' => 'api',
         ]);
 
         Role::create([
-            'name' => 'user',
-            'guard_name' => 'api'
+            'name' => 'karyawan',
+            'guard_name' => 'api',
         ]);
     }
 }

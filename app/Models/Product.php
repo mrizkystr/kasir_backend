@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = [
-        'name',
-        'merchants_id',
-        'price',
-        'status',
-        'image',
-    ];
+    use HasFactory;
 
-    public function merchant()
+    protected $fillable = ['name', 'code', 'description', 'price', 'category_id'];
+
+    public function category()
     {
-        return $this->belongsTo(Merchant::class, 'merchants_id', 'id');
+        return $this->belongsTo(Category::class);
     }
 }
+

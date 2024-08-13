@@ -10,17 +10,16 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->foreignId('category_id')->references('id')->on('category');
             $table->string('price');
-            $table->enum('status', ['active', 'inactive']);
-            $table->string('image'); // Menambahkan kolom image
+            $table->string('code')->unique();
             $table->timestamps();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('products');
     }
-}    
+}
